@@ -1,0 +1,111 @@
+{
+  "_args": [
+    [
+      "reveal.js@2.6.x",
+      "/Users/renmaomin/work/github/slideshows"
+    ]
+  ],
+  "_from": "reveal.js@>=2.6.0 <2.7.0",
+  "_id": "reveal.js@2.6.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/reveal.js",
+  "_npmUser": {
+    "email": "hakim.elhattab@gmail.com",
+    "name": "hakimel"
+  },
+  "_npmVersion": "1.4.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "reveal.js",
+    "raw": "reveal.js@2.6.x",
+    "rawSpec": "2.6.x",
+    "scope": null,
+    "spec": ">=2.6.0 <2.7.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/reveal.js/-/reveal.js-2.6.2.tgz",
+  "_shasum": "6b5e1bf2e09ca0765f6ec2bda33ec9fdc9c30b34",
+  "_shrinkwrap": null,
+  "_spec": "reveal.js@2.6.x",
+  "_where": "/Users/renmaomin/work/github/slideshows",
+  "author": {
+    "email": "hakim.elhattab@gmail.com",
+    "name": "Hakim El Hattab",
+    "url": "http://hakim.se"
+  },
+  "bugs": {
+    "url": "https://github.com/hakimel/reveal.js/issues"
+  },
+  "dependencies": {
+    "express": "~2.5.9",
+    "mustache": "~0.7.2",
+    "socket.io": "~0.9.13",
+    "underscore": "~1.5.1"
+  },
+  "description": "The HTML Presentation Framework",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-connect": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-qunit": "~0.2.2",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-zip": "~0.7.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "6b5e1bf2e09ca0765f6ec2bda33ec9fdc9c30b34",
+    "tarball": "https://registry.npmjs.org/reveal.js/-/reveal.js-2.6.2.tgz"
+  },
+  "engines": {
+    "node": "~0.8.0"
+  },
+  "homepage": "http://lab.hakim.se/reveal-js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE"
+    }
+  ],
+  "maintainers": [
+    {
+      "email": "hakim.elhattab@gmail.com",
+      "name": "hakimel"
+    }
+  ],
+  "name": "reveal.js",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hakimel/reveal.js.git"
+  },
+  "scripts": {
+    "start": "",
+    "test": "grunt test"
+  },
+  "subdomain": "revealjs",
+  "version": "2.6.2",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "pkgid": "reveal.js@2.6.2",
+      "required": {
+        "node": "~0.8.0"
+      }
+    },
+    {
+      "code": "ENOTSUP",
+      "pkgid": "reveal.js@2.6.2",
+      "required": {
+        "node": "~0.8.0"
+      }
+    }
+  ]
+}

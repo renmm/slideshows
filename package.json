@@ -1,0 +1,36 @@
+{
+  "name": "slideshows",
+  "version": "1.0.0",
+  "description": "web版ppt",
+  "main": "main.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "reveal.js": "^2.6.2"
+  },
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gh-pages": "^0.11.0",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "build": "gulp",
+    "deploy": "node ./scripts/deploy-gh-pages.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renmm/slideshows.git"
+  },
+  "keywords": [
+    "ppt",
+    "slideshow"
+  ],
+  "author": "renmaomin <renmaomin@126.com> (https://github.com/renmm)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renmm/slideshows/issues"
+  },
+  "homepage": "https://github.com/renmm/slideshows#readme"
+}

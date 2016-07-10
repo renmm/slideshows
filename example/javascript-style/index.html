@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>javascript-style</title>
+  <meta name="description" content="An introduction about fonts/typefaces and their application in Web development.">
+  <meta name="author" content="妙才">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="../../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../reveal.js/css/theme/just.css" id="theme">
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="../../reveal.js/lib/css/zenburn.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- If the query includes "print-pdf", include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( "link" );
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "../../reveal.js/css/print/pdf.css";
+        document.getElementsByTagName( "head" )[0].appendChild( link );
+      } 
+  </script>
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- 首页 -->
+      <section>
+        <h1>javscript-style</h1>
+        <address>
+          <p>妙才</p>
+          <p>2016.07.07</p>
+          <p>
+            <a href="https://github.com/renmm" title="妙才" class="icon-github-circled"></a>
+          </p>
+        </address>
+      </section>
+      <section>
+        <section>
+          <h3><code>javascript</code>规范化能带来什么<strong>好处</strong>？</h3>
+          <ul>
+            <li class="fragment">对<strong>个人</strong>而言，规避不好的习惯，代码写的会更<strong>专业</strong></li>
+            <li class="fragment"><strong>团队</strong>里，有助于<strong>增强</strong>代码的<strong>识别度</strong></li>
+            <li class="fragment"><strong>合并代码</strong>时，不会因为编码风格不统一而造成困惑</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>代码检查库</h3>
+          <ul>
+            <li class="fragment">
+              <a href="https://github.com/douglascrockford/JSLint">jslint</a>
+              目前人气：<strong>2710</strong> ✨
+            </li>
+            <li class="fragment">
+              <a href="https://github.com/jshint/jshint">jshint</a>
+              目前人气：<strong>6488</strong> ✨
+            </li>
+            <li class="fragment">
+              <a href="https://github.com/jscs-dev/node-jscs/">jscs</a>
+              目前人气：<strong>5108</strong> ✨
+            </li>
+            <li class="fragment">
+              <a href="https://github.com/eslint/eslint">jslint</a>
+              目前人气：<strong>5310</strong> ✨
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>jslint</h3>
+          <p>Douglas Crockford大牛2002年编写</p>
+          <ul>
+            <li>
+              <strong>优点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">参数配置完成，可以直接使用</li>
+              </ol>
+            </li>
+            <li>
+              <strong>缺点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">不够灵活，不能自定义规则</li>
+                <li class="fragment">有限的配置选项，许多规则不能禁掉</li>
+                <li class="fragment">没有文档记录规则</li>
+                <li class="fragment">很难弄清楚哪个规则引起的错误</li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>jshint</h3>
+          <p>2011年</p>
+          <ul>
+            <li>
+              <strong>优点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">支持配置文件，大多数参赛可配置</li>
+                <li class="fragment">支持基本的<code>ES6</code></li>
+              </ol>
+            </li>
+            <li>
+              <strong>缺点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">很难弄清楚哪个规则引起的错误</li>
+                <li class="fragment">不支持自定义规则</li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>jscs</h3>
+          <p>2013年</p>
+          <ul>
+            <li>
+              <strong>优点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">支持自定义报告，更容易与其他工具集成</li>
+                <li class="fragment">在报告中存在标记包含规则名字，所以很容易指出哪个规则造成了错误</li>
+                <li class="fragment">通过自定义插件进行拓展</li>
+              </ol>
+            </li>
+            <li>
+              <strong>缺点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">
+                  仅仅检查代码风格的问题。JSCS不检查潜在存在的bugs，例如不适用的变量、偶然的全局变量等等
+                </li>
+                <li class="fragment">四个工具中最慢，但是在使用中不是一个问题</li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>eslint</h3>
+          <p>2013年</p>
+          <ul>
+            <li>
+              <strong>优点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">灵活：任何规则都可以开启闭合，以及有些规则有些额外配置</li>
+                <li class="fragment">很容易拓展和有需要可用插件</li>
+                <li class="fragment">包含了在其他检查器中不可用的规则，使得eslint在错误检查上更有用</li>
+                <li class="fragment">支持ES6，唯一支持JSX的工具</li>
+                <li class="fragment">支持自定义报告</li>
+              </ol>
+            </li>
+            <li>
+              <strong>缺点</strong>
+              <ol style="font-size: 80%;">
+                <li class="fragment">需要一些配置</li>
+                <li class="fragment">速度慢，但不是主要问题</li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>结论</h3>
+          <div class="fragment">
+            <p>目前，较流行的是<strong>eslint</strong>.所以可以考虑使用<strong>eslint</strong>来构建</p>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>自创or跟随开源？</h3>
+          <div class="fragment">
+            <p>一开始，我是拒绝跟随的，试着做了以下一些事儿：</p>
+            <figure class="fragment">
+              <a href="https://github.com/renmm/javascript-style">创建一个javascript规范</a>
+              <img src="img/javascript-style.png" alt="javascript-style">
+            </figure>
+          </div>
+        </section>
+        <section>
+          <h3>创建了一个npm包:<a href="https://www.npmjs.com/package/eslint-config-rmm-es5">eslint-config-rmm-es5</a></h3>
+          <figure class="fragment">
+            <img src="img/eslint-config-rmm-es5.png" alt="javascript编码规范">
+          </figure>
+        </section>
+        <section>
+          <h3>困惑?</h3>
+          <ul>
+            <li class="fragment">
+              <h5>编码规范未定稿</h5>
+              <ol>
+                <li class="fragment">有的规则，eslint暂不支持，形如虚设</li>
+                <li class="fragment">规范，往细了写，可以制定很多，但是又在一定程度上限制了灵活性，这个度不好把握</li>
+              </ol>
+            </li>
+            <li class="fragment">
+              <h5>eslint-config-rmm-es5限定过于严格</h5>
+              <ol>
+                <li class="fragment">参照现有eslint规则，原则上基于规范整理。但过于严格</li>
+                <li class="fragment">需要人维护，例如，eslint更新了，你得更新你的库</li>
+              </ol>
+            </li>
+            <li class="fragment">违背了实用性原则，有点背离我的初衷了</li>
+          </ul>
+        </section>
+        <section>
+          <h3>standardjs</h3>
+          <figure class="fragment">
+            <h5><a href="http://shields.io/">Badge</a></h5>
+            <p>好处：有此徽章的项目，一目了然项目的代码风格</p>
+            <p><a href="https://github.com/feross/standard"><img src="https://camo.githubusercontent.com/e06d9d72eecca61c1ba39fdf19868f70fcb3a9b3/68747470733a2f2f63646e2e7261776769742e636f6d2f6665726f73732f7374616e646172642f6d61737465722f62616467652e737667" alt="js-standard-style" data-canonical-src="https://cdn.rawgit.com/feross/standard/master/badge.svg" style="max-width:100%;"></a></p>
+            <p><a href="http://standardjs.com/"><img src="https://camo.githubusercontent.com/3c9082cfba1231e4340eee8c17fefc5ee24d5e2f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d7374616e646172642d627269676874677265656e2e737667" alt="js-standard-style" data-canonical-src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" style="max-width:100%;"></a></p>
+          </figure>
+        </section>
+        <section>
+          <h3>standardjs特点</h3>
+          <ul>
+            <li class="fragment">不需要配置，一种风格规范全部代码</li>
+            <li class="fragment">
+              <span>工具集成也不错，文档也挺好</span>
+              <ol>
+                <li class="fragment"><a href="http://standardjs.com/">standardjs官方文档</a></li>
+                <li class="fragment"><a href="http://hongfanqie.org/standardjs/">standardjs中文文档</a></li>
+              </ol>
+            </li>
+            <li class="fragment">github上目前有 <strong>6445</strong> ✨，还是不错滴</li>
+            <li class="fragment">长期有人维护（这个好👍）</li>
+          </ul>
+        </section>
+        <section>
+          <h3>standardjs常用规则</h3>
+          <ul class="flow-width">
+            <li class="fragment">
+              <strong>两个空格</strong>缩进
+            </li>
+            <li class="fragment">空格的合理使用,便于阅读,例如对象声明时，属性和冒号之间没有空白，在冒号和属性之间有一个空格。</li>
+            <li class="fragment">字符串用<strong>单引号</strong>，用双引号只是为了避免转义单引号。</li>
+            <li class="fragment">无<strong>未使用变量</strong>。这能帮助发现大量的错误。</li>
+            <li class="fragment"><strong>无分号</strong>。这，没问题，真的！😊</li>
+            <li class="fragment">采用<strong>camel命名</strong>方式。</li>
+          </ul>
+        </section>
+        <section>
+          <h3><a href="http://editorconfig.org/">editorconfig</a>-1</h3>
+          <p>统一编码风格，例如<strong>缩进</strong>，<strong>utf-8编码</strong>等</p>
+          <p>需要去官网下载相关IDE的插件</p>
+          <img class="fragment" src="img/editorconfig-down.png" alt="下载editorconfig">
+        </section>
+        <section>
+          <h3><a href="http://editorconfig.org/">editorconfig</a>-2</h3>
+          <p>项目根目录创建<strong>.editorconfig</strong>文件</p>
+          <img class="fragment" src="img/editorconfig-2.png" alt="配置editorconfig">
+        </section>
+        <section>
+          <h3>工具篇</h3>
+          <div class="fragment">
+            <h5>linter</h5>
+            <p>支持很多编辑，像sublie text,atom,vim等等，具体的相关插件可以去官网查看,此处我以自己的环境(sublime text)做介绍</p>
+            <ul>
+              <li class="fragment">通过<a href="https://packagecontrol.io/">Package Control</a>，
+            安装<a href="https://packagecontrol.io/packages/SublimeLinter">SublimeLinter</a>
+            和<a href="https://packagecontrol.io/packages/SublimeLinter-contrib-standard">SublimeLinter-contrib-standard</a></li>
+            </ul>
+        </section>
+        <section>
+          <h3>修改插件配置-1</h3>
+          <ul>
+            <li class="fragment">打开SublimeLinter的配置文件，<strong>配置path</strong>,<strong>调整debug模式</strong>，确认<strong>linter解释器</strong>为<strong>standard</strong></li>
+            <li class="fragment">
+            <p>SublimeLinter路径：</p>
+            <figure class="fragment">
+              <img src="img/sub-path.png" alt="avac">
+            </figure>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>修改插件配置-2</h3>
+          <ul>
+            <li class="fragment">
+              <h5>配置<strong>path</strong>:</h5>
+                <ol>
+                  <li class="fragment">填写<strong>node</strong>的<code>path</code> 🐳<strong>mac</strong>(<code>osx</code>)</li>
+                </ol>
+            </li>
+            <li class="fragment">
+              <h5>调整<strong>debug</strong>模式:</h5>
+                <ol>
+                  <li class="fragment">修改<code>debug</code>字段为<strong>true</strong>,</li>
+                  <li class="fragment">修改<code>show_errors_on_save</code>字段为<strong>true</strong></li>
+                </ol>
+            </li>
+            <li class="fragment">
+              <h5>确认<strong>linter解释器</strong>为<strong>standard</strong>:</h5>
+                <ol>
+                  <li class="fragment">修改eslint字段下的<code>@disable</code>字段为<strong>true</strong></li>
+                </ol>
+            </li>
+          </ul>
+        </section> 
+        <section>
+          <figure class="fragment">
+            <img src="img/path-full.png" alt="">
+          </figure>
+        </section>
+        <section>
+          <h3>格式化插件<strong>StandardFormat</strong>-1</h3>
+          <ul>
+            <li class="fragment">需要全局安装<strong>standard-format</strong>: <code>npm install -g standard-format</code></li>
+            <li class="fragment">修改配置：<strong>PATH</strong>指向<code>node</code>,将<strong>format_on_save</strong>改为<code>false</code>,添加<code>jsx</code>到<strong>extensions</strong>
+              <img src="img/sf-conf.png" alt="">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>格式化插件<strong>StandardFormat</strong>-2</h3>
+          <p>修改后的配置：</p>
+          <img src="img/sf-conf-2.png" alt="">
+        </section>
+        <section>
+          <h3>ghooks</h3>
+          <p><strong>git</strong>代码提交钩子</p>
+          <ul>
+            <li class="fragment">语法：<code>npm install --save-dev ghooks</code></li>
+            <li class="fragment">配置  ：在<strong>package.json</strong>里添加：</li>
+            <li class="fragment">
+              <pre>
+                <code>
+                  "config": {
+                    "ghooks": {
+                      "pre-commit": "npm run lint"
+                    }
+                  }
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>项目里遇到的风格问题-bind</h3>
+          <ul class="atom-list">
+            <li class="fragment">👎不好:</li>
+            <li class="fragment"><img src="img/example-bad-1.png" alt="不必要的函数绑定"></li>
+            <li class="fragment"><strong>Error</strong>: The function binding is unnecessary. <a href="http://eslint.cn/docs/rules/no-extra-bind">no-extra-bind</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>项目里遇到的风格问题-bind</h3>
+          <ul class="atom-list">
+            <li class="fragment">👍好:</li>
+            <li class="fragment"><img src="img/example-good-1.png" alt="不必要的函数绑定"></li>
+          </ul> 
+        </section>
+        <section>
+          <h3>项目里遇到的风格问题－boolean</h3>
+          <ul class="atom-list">
+            <li class="fragment">👎不好:</li>
+            <li class="fragment"><img src="img/example-bad-2.png" alt="不必要的条件表达式"></li>
+            <li class="fragment">
+              <strong>Error</strong>: Unnecessary use of boolean literals in conditional expression. 
+              <a href="http://eslint.cn/docs/rules/no-unneeded-ternary">no-unneeded-ternary</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>项目里遇到的风格问题-boolean</h3>
+          <ul class="atom-list">
+            <li class="fragment">👍好:</li>
+            <li class="fragment"><img src="img/example-good-2.png" alt="不必要的条件表达式"></li>
+          </ul> 
+        </section>
+      </section>
+      <!-- 尾页 -->
+      <section>
+        <h2>Q&amp;A</h2>
+        <p><small>- End -</small></p>
+      </section>
+    </div>
+  </div>
+  <script src="../../reveal.js/lib/js/head.min.js"></script>
+  <script src="../../reveal.js/js/reveal.js"></script>
+  <script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || "linear", // default/cube/page/concave/zoom/linear/fade/none
+      // Parallax scrolling
+      // parallaxBackgroundImage: "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg",
+      // parallaxBackgroundSize: "2100px 900px",
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { 
+          src: "../../reveal.js/lib/js/classList.js", 
+          condition: function() { return !document.body.classList; } 
+        },
+        { 
+          src: "../../reveal.js/plugin/markdown/marked.js", 
+          condition: function() { return !!document.querySelector( "[data-markdown]" ); } 
+        },
+        { 
+          src: "../../reveal.js/plugin/markdown/markdown.js", 
+          condition: function() { return !!document.querySelector( "[data-markdown]" ); } 
+        },
+        { src: "../../reveal.js/plugin/highlight/highlight.js", 
+          async: true, 
+          callback: function() { hljs.initHighlightingOnLoad(); } 
+        },
+        { 
+          src: "../../reveal.js/plugin/zoom-js/zoom.js", 
+          async: true, 
+          condition: function() { return !!document.body.classList; } 
+        },
+        { 
+          src: "../../reveal.js/plugin/notes/notes.js", 
+          async: true, 
+          condition: function() { return !!document.body.classList; } 
+        }
+      ]});
+    </script>
+  </body>
+</html>
