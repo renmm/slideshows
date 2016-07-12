@@ -12,7 +12,8 @@
   "devDependencies": {
     "del": "^2.2.1",
     "gh-pages": "^0.11.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "highlight": "^0.2.4"
   },
   "scripts": {
     "build": "gulp",
