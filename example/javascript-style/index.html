@@ -1086,6 +1086,40 @@ inTransition = false
         </section>
       </section>
       <section>
+        <h3>项目里直接配置standard相关插件</h3>
+        <ul>
+          <li class="fragment">安装：<code>npm install --save-dev standard snazzy ghooks</code></li>
+          <li class="fragment">配置package.json:</li>
+          <li class="fragment" style="width: 800px;max-height: 300px;overflow-y: scroll;">
+            <pre><code>
+"scripts": {
+  "prebuild": "npm run lint",
+  "build": "gulp",
+  "lint": "standard --verbose | snazzy --format",
+},
+"standard": {
+  "ignore": [
+    "dist/",
+    "mock/",
+    "**/lib/"
+  ],
+  "env": {
+    "mocha": true
+  }
+},
+"config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+            </code></pre>
+          </li>
+          <li class="fragment">
+            npm 提供了<strong>pre钩子</strong>，这可以在我们压缩代码之前，对代码进行风格检查
+          </li>
+        </ul>
+      </section>
+      <section>
         <section>
           <h3>项目里遇到的风格问题-bind</h3>
           <ul class="atom-list">
